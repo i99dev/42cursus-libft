@@ -6,7 +6,7 @@
 /*   By: oal-tena <oal-tena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 04:27:25 by oal-tena          #+#    #+#             */
-/*   Updated: 2021/10/10 07:35:35 by oal-tena         ###   ########.fr       */
+/*   Updated: 2021/11/10 10:48:42 by oal-tena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static long int	ft_len(int n)
 	int	len;
 
 	len = 0;
-	if (n <= 0 )
+	if (n <= 0)
 		len = 1;
 	while (n != 0)
 	{
