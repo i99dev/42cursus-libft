@@ -6,36 +6,34 @@
 /*   By: oal-tena <oal-tena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:33:53 by oal-tena          #+#    #+#             */
-/*   Updated: 2021/10/05 11:18:51 by oal-tena         ###   ########.fr       */
+/*   Updated: 2021/11/24 16:40:42 by oal-tena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	unsigned int	s1_len;
-	unsigned int	s2_len;
-	unsigned int	i;
-	unsigned int	j;
-	char			*str;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	if (!s1 || !s2)
-		return (0);
-	s1_len = ft_strlen((char *)s1);
-	s2_len = ft_strlen((char *)s2);
 	i = 0;
-	j = -1;
-	str = malloc(sizeof(char) * (s1_len + s2_len + 1));
-	if (!str)
-		return (0);
-	while (s1[i])
+	j = 0;
+	if (s1 == NULL)
 	{
-		str[i] = s1[i];
-		i++;
+		s1 = (char *)malloc(sizeof(char) * 1);
+		s1[0] = '\0';
 	}
-	while (s2[++j])
-		str[i++] = s2[j];
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s1[j] != '\0')
+		str[i++] = s1[j++];
+	j = 0;
+	while (s2[j] != '\0')
+		str[i++] = s2[j++];
 	str[i] = '\0';
+	free(s1);
 	return (str);
 }
